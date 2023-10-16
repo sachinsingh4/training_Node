@@ -1,13 +1,21 @@
-const db = require("../config/db.config");
-
 //Employee...
+const Employee = require("../services/employee.service");
 exports.findAll = (req, res) => {
-  const sql = "select * from `employee`";
-  db.query(sql, (err, data) => {
+  Employee.findAllEmployee(req, (err, result) => {
     if (err) {
-      console.log(err);
+      res.json(err);
     } else {
-      res.send(data);
+      res.json(result);
+    }
+  });
+};
+
+exports.putData = (req, res) => {
+  Employee.putEmployee(req, (err, result) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(result);
     }
   });
 };
