@@ -5,6 +5,7 @@ exports.findAll = (req, res) => {
     if (err) {
       res.json(err);
     } else {
+      // console.log("result", result);
       res.json(result);
     }
   });
